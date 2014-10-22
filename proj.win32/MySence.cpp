@@ -17,7 +17,7 @@ bool MySence::init()
 
 	CCSprite *background = CCSprite::create("HelloWorld.png");
 	background->setPosition(CCPoint(size.width/2,size.height/2));
-	this->addChild(background);
+	this->addChild(background,1);
 
 	CCSprite *sp1 = CCSprite::create("cocos2d.png");
 	sp1->setPosition(ccp(size.width*0.2, size.height*0.7));
@@ -53,9 +53,7 @@ bool MySence::init()
 	sp6->setSkewX(20.0f);
 	this->addChild(sp6);
 	sp6->setColor(ccc3(255,0,0));
-
-
-
+	
 	/************************************************************************/
 	/*  
 	CCSprite精灵类常用方法
@@ -71,7 +69,7 @@ bool MySence::init()
 	setSkewX(float sx)
 	setSkewX(float sy)
 
-	setAnchorPoint(const CCPoint &anchor)
+	setAnchorPoint(const CCPoint &anchor)  //锚点 setAnchorPoint(CCPointZero);
 
 	setVisible(bool bVisible)
 
@@ -86,6 +84,15 @@ bool MySence::init()
 
 
 	*/
+
+	/*
+	addChild()的三种重载形式
+	1.一个参数	普通
+	2.2个参数	加一个优先级
+	3.3个参数	加一个tag，方便其它方法调用
+	*/
+
+
 	/************************************************************************/
 	
 
