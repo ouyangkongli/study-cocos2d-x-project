@@ -15,10 +15,9 @@ bool MySence::init()
 {
 	CCSize size = CCDirector::sharedDirector()->getWinSize();
 
-	CCSprite *background = CCSprite::create("HelloWorld.png");
-	background->setPosition(CCPoint(size.width/2,size.height/2));
-	this->addChild(background,1);
-
+	
+	//cocos2d-x CCSprite
+	/*
 	CCSprite *sp1 = CCSprite::create("cocos2d.png");
 	sp1->setPosition(ccp(size.width*0.2, size.height*0.7));
 	this->addChild(sp1);
@@ -28,7 +27,7 @@ bool MySence::init()
 	this->addChild(sp2);
 
 	CCTexture2D *texture = CCTextureCache::sharedTextureCache()->addImage("cocos2d.png");
-	
+
 	CCSprite *sp3 = CCSprite::createWithTexture(texture);
 	sp3->setPosition(ccp(size.width*0.6, size.height*0.7));
 	this->addChild(sp3);
@@ -40,7 +39,7 @@ bool MySence::init()
 
 
 	CCSpriteFrame *frame = CCSpriteFrame::create("cocos2d.png", CCRect(0,0,160,200));
-	
+
 	CCSprite *sp5 = CCSprite::createWithSpriteFrame(frame);
 	sp5->setPosition(ccp(size.width*0.3, size.height*0.3));
 	sp5->setRotationX(20.0f);
@@ -49,10 +48,33 @@ bool MySence::init()
 
 	CCSprite *sp6 = CCSprite::createWithSpriteFrame(frame);
 	sp6->setPosition(ccp(size.width*0.5, size.height*0.3));
-//	sp6->setRotationX(-30.0f);
+	//	sp6->setRotationX(-30.0f);
 	sp6->setSkewX(20.0f);
 	this->addChild(sp6);
 	sp6->setColor(ccc3(255,0,0));
+		
+	*/
+	CCSprite *background = CCSprite::create("HelloWorld.png");
+	background->setPosition(CCPoint(size.width/2,size.height/2));
+	this->addChild(background,1);
+
+	//cocos2d-x font
+	//CCLabelTTF CCLabelBMFont CCLabelAtlas
+	CCLabelTTF *label1 = CCLabelTTF::create("cocos2d-x","Marker Felt",25);
+	label1->setPosition(ccp(size.width/2,size.height/2));
+	label1->setColor(ccc3(255,0,0));
+	this->addChild(label1,2);
+
+	//CCLabelBMFont *label = CCLabelBMFont::create("cocos2d-x", "");
+
+	//CCLabelAtlas *label3 = CCLabelAtlas::create("COCOS", "");
+
+	
+
+
+
+
+
 	
 	/************************************************************************/
 	/*  
@@ -91,8 +113,6 @@ bool MySence::init()
 	2.2个参数	加一个优先级
 	3.3个参数	加一个tag，方便其它方法调用
 	*/
-
-
 	/************************************************************************/
 	
 
