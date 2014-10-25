@@ -1,7 +1,9 @@
 study-cocos2d-x-project
-=======================
-cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
-study-cocos2d-x-project  
+===
+study-cocos2d-x-project 
+---
+
+cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html  
 
 1.创建了一个空的场景scene  
 2.精灵类CCSprite  
