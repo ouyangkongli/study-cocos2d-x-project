@@ -1,8 +1,8 @@
 study-cocos2d-x-project
 ===
-study-cocos2d-x-project 
+study-cocos2d-x-project学习进度 
 ---
-
+cocos2d-x系列教程：http://cn.cocos2d-x.org/tutorial/index?type=cocos2d-x
 cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html  
 
 1.创建了一个空的场景scene  
