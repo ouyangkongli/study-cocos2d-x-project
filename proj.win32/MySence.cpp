@@ -54,23 +54,60 @@ bool MySence::init()
 	sp6->setColor(ccc3(255,0,0));
 		
 	*/
-	CCSprite *background = CCSprite::create("HelloWorld.png");
-	background->setPosition(CCPoint(size.width/2,size.height/2));
-	this->addChild(background,1);
+	//CCSprite *background = CCSprite::create("HelloWorld.png");
+	//background->setPosition(CCPoint(size.width/2,size.height/2));
+	//this->addChild(background,1);
 
+	
+	
+	//////////////////////////////////////////////////////////////////////////
 	//cocos2d-x font
+	//////////////////////////////////////////////////////////////////////////
 	//CCLabelTTF CCLabelBMFont CCLabelAtlas
-	CCLabelTTF *label1 = CCLabelTTF::create("cocos2d-x","Marker Felt",25);
-	label1->setPosition(ccp(size.width/2,size.height/2));
-	label1->setColor(ccc3(255,0,0));
-	this->addChild(label1,2);
+	//CCLabelTTF *label1 = CCLabelTTF::create("cocos2d-x","Marker Felt",25);
+	//label1->setPosition(ccp(size.width/2,size.height/2));
+	//label1->setColor(ccc3(255,0,0));
+	//this->addChild(label1,2);
 
-	//CCLabelBMFont *label = CCLabelBMFont::create("cocos2d-x", "");
+	//CCLabelBMFont *label2 = CCLabelBMFont::create("cocos2d-x", "fonts/boundsTestFont.fnt");
+	//label2->setPosition(ccp(size.width / 2, size.height / 3));
+	//label2->setColor(ccc3(0,0,255));
+	//addChild(label2);
 
-	//CCLabelAtlas *label3 = CCLabelAtlas::create("COCOS", "");
+	//CCLabelAtlas *label3 = CCLabelAtlas::create("COCOS", "fonts/larabie-16.plist");
+	//label3->setPosition(ccp(size.width / 4, size.height / 4));
+	//addChild(label3);
+	//label3->setColor(ccc3(0,255,0));
 
 	
 
+	//////////////////////////////////////////////////////////////////////////
+	//CCMenu
+	//firstly, create CCMenuItem(CCMenuItemLabel, CCMenuItemSprite, CCMenuItemToggle),secondly, create CCMenu and add CCMenuItems in it.
+	//////////////////////////////////////////////////////////////////////////
+	CCLabelBMFont *label1 = CCLabelBMFont::create("cocos2d-x", "fonts/boundsTestFont.fnt");
+	label1->setColor(ccc3(255,0,0));
+	//label1->setPosition(ccp(size.width / 2, size.height / 3));
+	CCMenuItemLabel *item1 = CCMenuItemLabel::create(label1, this, menu_selector(MySence::menuCallback));
+	item1->setPosition(ccp(size.width / 2, size.height*0.95));
+
+	CCMenuItemFont *item2= CCMenuItemFont::create("item2", this, menu_selector(MySence::menuCallback));
+	item2->setPosition(ccp(size.width / 2, size.height*0.75));
+
+	CCSprite *mySprite1 = CCSprite::create("btn-about-normal.png");
+	CCSprite *mySprite2 = CCSprite::create("btn-about-selected.png");
+	CCSprite *mySprite3 = CCSprite::create("btn-play-normal.png");
+	CCSprite *mySprite4 = CCSprite::create("btn-play-selected.png");
+	CCMenuItemSprite *item3 = CCMenuItemSprite::create(mySprite3, mySprite4, this, menu_selector(MySence::menuCallback));
+	item3->setPosition(ccp(size.width / 2, size.height*0.55));
+	CCMenuItemImage *item4 = CCMenuItemImage::create("btn-about-normal.png","btn-about-selected.png",this, menu_selector(MySence::menuCallback));
+	item4->setPosition(ccp(size.width / 2, size.height*0.35));
+	CCMenuItemToggle *item5 = CCMenuItemToggle::createWithTarget(this, menu_selector(MySence::menuCallback),CCMenuItemFont::create("ON"), CCMenuItemFont::create("OFF"), NULL);
+	item5->setPosition(ccp(size.width/2, size.height * 0.15));
+
+	CCMenu *menu = CCMenu::create(item1,item2,item3, item4, item5, NULL);
+	menu->setPosition(CCPointZero);
+	this->addChild(menu);
 
 
 
@@ -127,5 +164,10 @@ CCScene * MySence::scene()
 	scene->addChild(layer);
 
 	return scene;
+
+}
+
+void MySence::menuCallback(CCObject *pSender)
+{
 
 }

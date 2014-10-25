@@ -13,6 +13,7 @@ public:
 	virtual bool init();
 	static CCScene * scene();
 	
+	void menuCallback(CCObject* pSender);
 
 	CREATE_FUNC(MySence);
 
