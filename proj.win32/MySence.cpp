@@ -85,30 +85,72 @@ bool MySence::init()
 	//CCMenu
 	//firstly, create CCMenuItem(CCMenuItemLabel, CCMenuItemSprite, CCMenuItemToggle),secondly, create CCMenu and add CCMenuItems in it.
 	//////////////////////////////////////////////////////////////////////////
-	CCLabelBMFont *label1 = CCLabelBMFont::create("cocos2d-x", "fonts/boundsTestFont.fnt");
-	label1->setColor(ccc3(255,0,0));
-	//label1->setPosition(ccp(size.width / 2, size.height / 3));
-	CCMenuItemLabel *item1 = CCMenuItemLabel::create(label1, this, menu_selector(MySence::menuCallback));
-	item1->setPosition(ccp(size.width / 2, size.height*0.95));
+	//CCLabelBMFont *label1 = CCLabelBMFont::create("cocos2d-x", "fonts/boundsTestFont.fnt");
+	//label1->setColor(ccc3(255,0,0));
+	////label1->setPosition(ccp(size.width / 2, size.height / 3));
+	//CCMenuItemLabel *item1 = CCMenuItemLabel::create(label1, this, menu_selector(MySence::menuCallback));
+	//item1->setPosition(ccp(size.width / 2, size.height*0.95));
 
-	CCMenuItemFont *item2= CCMenuItemFont::create("item2", this, menu_selector(MySence::menuCallback));
-	item2->setPosition(ccp(size.width / 2, size.height*0.75));
+	//CCMenuItemFont *item2= CCMenuItemFont::create("item2", this, menu_selector(MySence::menuCallback));
+	//item2->setPosition(ccp(size.width / 2, size.height*0.75));
 
-	CCSprite *mySprite1 = CCSprite::create("btn-about-normal.png");
-	CCSprite *mySprite2 = CCSprite::create("btn-about-selected.png");
-	CCSprite *mySprite3 = CCSprite::create("btn-play-normal.png");
-	CCSprite *mySprite4 = CCSprite::create("btn-play-selected.png");
-	CCMenuItemSprite *item3 = CCMenuItemSprite::create(mySprite3, mySprite4, this, menu_selector(MySence::menuCallback));
-	item3->setPosition(ccp(size.width / 2, size.height*0.55));
-	CCMenuItemImage *item4 = CCMenuItemImage::create("btn-about-normal.png","btn-about-selected.png",this, menu_selector(MySence::menuCallback));
-	item4->setPosition(ccp(size.width / 2, size.height*0.35));
-	CCMenuItemToggle *item5 = CCMenuItemToggle::createWithTarget(this, menu_selector(MySence::menuCallback),CCMenuItemFont::create("ON"), CCMenuItemFont::create("OFF"), NULL);
-	item5->setPosition(ccp(size.width/2, size.height * 0.15));
+	//CCSprite *mySprite1 = CCSprite::create("btn-about-normal.png");
+	//CCSprite *mySprite2 = CCSprite::create("btn-about-selected.png");
+	//CCSprite *mySprite3 = CCSprite::create("btn-play-normal.png");
+	//CCSprite *mySprite4 = CCSprite::create("btn-play-selected.png");
+	//CCMenuItemSprite *item3 = CCMenuItemSprite::create(mySprite3, mySprite4, this, menu_selector(MySence::menuCallback));
+	//item3->setPosition(ccp(size.width / 2, size.height*0.55));
+	//CCMenuItemImage *item4 = CCMenuItemImage::create("btn-about-normal.png","btn-about-selected.png",this, menu_selector(MySence::menuCallback));
+	//item4->setPosition(ccp(size.width / 2, size.height*0.35));
+	//CCMenuItemToggle *item5 = CCMenuItemToggle::createWithTarget(this, menu_selector(MySence::menuCallback),CCMenuItemFont::create("ON"), CCMenuItemFont::create("OFF"), NULL);
+	//item5->setPosition(ccp(size.width/2, size.height * 0.15));
 
-	CCMenu *menu = CCMenu::create(item1,item2,item3, item4, item5, NULL);
-	menu->setPosition(CCPointZero);
-	this->addChild(menu);
+	//CCMenu *menu = CCMenu::create(item1,item2,item3, item4, item5, NULL);
+	//menu->setPosition(CCPointZero);
+	//this->addChild(menu);
+	
 
+
+	//////////////////////////////////////////////////////////////////////////
+	//get Current Language
+	//////////////////////////////////////////////////////////////////////////
+	CCLabelTTF *label1 = CCLabelTTF::create("", "Marker Felt", 35);
+	label1->setPosition(ccp(size.width / 2, size.height / 2));
+	LanguageType curLanguageType = CCApplication::sharedApplication()->getCurrentLanguage();
+	addChild(label1);
+	switch (curLanguageType)
+	{
+	case cocos2d::kLanguageEnglish:
+		label1->setString("current language is English");
+		break;
+	case cocos2d::kLanguageChinese:
+		label1->setString("current language is Chinese");
+		break;
+	case cocos2d::kLanguageFrench:
+		break;
+	case cocos2d::kLanguageItalian:
+		break;
+	case cocos2d::kLanguageGerman:
+		break;
+	case cocos2d::kLanguageSpanish:
+		break;
+	case cocos2d::kLanguageDutch:
+		break;
+	case cocos2d::kLanguageRussian:
+		break;
+	case cocos2d::kLanguageKorean:
+		break;
+	case cocos2d::kLanguageJapanese:
+		break;
+	case cocos2d::kLanguageHungarian:
+		break;
+	case cocos2d::kLanguagePortuguese:
+		break;
+	case cocos2d::kLanguageArabic:
+		break;
+	default:
+		break;
+	}
 
 
 
