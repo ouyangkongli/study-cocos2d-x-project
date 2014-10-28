@@ -14,6 +14,12 @@ public:
 	static CCScene * scene();
 	
 	void menuCallback(CCObject* pSender);
+	void scheCallback(float dt);
+	void update(float dt);
+
+	CCLabelTTF *label;
+	int n;
+	char str[50];
 
 	CREATE_FUNC(MySence);
 

@@ -1,5 +1,5 @@
 #include "MySence.h"
-
+#include "HelloWorldScene.h"
 
 MySence::MySence()
 {
@@ -114,43 +114,60 @@ bool MySence::init()
 	//////////////////////////////////////////////////////////////////////////
 	//get Current Language
 	//////////////////////////////////////////////////////////////////////////
-	CCLabelTTF *label1 = CCLabelTTF::create("", "Marker Felt", 35);
-	label1->setPosition(ccp(size.width / 2, size.height / 2));
-	LanguageType curLanguageType = CCApplication::sharedApplication()->getCurrentLanguage();
-	addChild(label1);
-	switch (curLanguageType)
-	{
-	case cocos2d::kLanguageEnglish:
-		label1->setString("current language is English");
-		break;
-	case cocos2d::kLanguageChinese:
-		label1->setString("current language is Chinese");
-		break;
-	case cocos2d::kLanguageFrench:
-		break;
-	case cocos2d::kLanguageItalian:
-		break;
-	case cocos2d::kLanguageGerman:
-		break;
-	case cocos2d::kLanguageSpanish:
-		break;
-	case cocos2d::kLanguageDutch:
-		break;
-	case cocos2d::kLanguageRussian:
-		break;
-	case cocos2d::kLanguageKorean:
-		break;
-	case cocos2d::kLanguageJapanese:
-		break;
-	case cocos2d::kLanguageHungarian:
-		break;
-	case cocos2d::kLanguagePortuguese:
-		break;
-	case cocos2d::kLanguageArabic:
-		break;
-	default:
-		break;
-	}
+	//CCLabelTTF *label1 = CCLabelTTF::create("", "Marker Felt", 35);
+	//label1->setPosition(ccp(size.width / 2, size.height / 2));
+	//LanguageType curLanguageType = CCApplication::sharedApplication()->getCurrentLanguage();
+	//addChild(label1);
+	//switch (curLanguageType)
+	//{
+	//case cocos2d::kLanguageEnglish:
+	//	label1->setString("current language is English");
+	//	break;
+	//case cocos2d::kLanguageChinese:
+	//	label1->setString("current language is Chinese");
+	//	break;
+	//case cocos2d::kLanguageFrench:
+	//	break;
+	//case cocos2d::kLanguageItalian:
+	//	break;
+	//case cocos2d::kLanguageGerman:
+	//	break;
+	//case cocos2d::kLanguageSpanish:
+	//	break;
+	//case cocos2d::kLanguageDutch:
+	//	break;
+	//case cocos2d::kLanguageRussian:
+	//	break;
+	//case cocos2d::kLanguageKorean:
+	//	break;
+	//case cocos2d::kLanguageJapanese:
+	//	break;
+	//case cocos2d::kLanguageHungarian:
+	//	break;
+	//case cocos2d::kLanguagePortuguese:
+	//	break;
+	//case cocos2d::kLanguageArabic:
+	//	break;
+	//default:
+	//	break;
+	//}
+
+
+	//////////////////////////////////////////////////////////////////////////
+	//schedule
+	//////////////////////////////////////////////////////////////////////////
+	
+	label = CCLabelTTF::create("0", "Consolas", 30);
+	label->setPosition(ccp(size.width / 2, size.height / 2));
+	this->addChild(label);
+
+	/*schedule(schedule_selector(MySence::scheCallback),3.0f ,100, 1);
+	n = 0;*/
+
+	scheduleOnce(schedule_selector(MySence::scheCallback), 3.0f);
+//	scheduleUpdate();
+
+	
 
 
 
@@ -210,6 +227,20 @@ CCScene * MySence::scene()
 }
 
 void MySence::menuCallback(CCObject *pSender)
+{
+
+}
+
+void MySence::scheCallback(float dt)
+{
+	//sprintf(str, "%d", n++);
+	//label->setString(str);
+
+	CCScene *s = HelloWorld::scene();
+	CCDirector::sharedDirector()->replaceScene(s);
+}
+
+void MySence::update(float dt)
 {
 
 }
