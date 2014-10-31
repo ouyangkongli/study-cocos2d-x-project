@@ -15,6 +15,28 @@ bool MySence::init()
 {
 	CCSize size = CCDirector::sharedDirector()->getWinSize();
 
+
+
+	//////////////////////////////////////////////////////////////////////////
+	//µã9Í¼
+	//////////////////////////////////////////////////////////////////////////
+	//CCSprite *sp1 = CCSprite::create("green_edit.png");
+	//sp1->setPosition(ccp(size.width / 2, size.height*0.8));
+	//addChild(sp1);
+	//sp1->setScaleX(10.0f);
+	//sp1->setScaleY(3.0f);
+
+	//CCScale9Sprite *sp2 = CCScale9Sprite::create("yellow_edit.png");
+	//sp2->setPosition(ccp(size.width / 2, size.height*0.6));
+	//addChild(sp2);
+	//sp2->setPreferredSize(CCSize(size.width*0.8, size.height*0.3));
+	//sp2->setCapInsets(CCRect(10,10,8,8));
+
+
+
+
+
+
 	
 	//cocos2d-x CCSprite
 	/*
@@ -157,15 +179,15 @@ bool MySence::init()
 	//schedule
 	//////////////////////////////////////////////////////////////////////////
 	
-	label = CCLabelTTF::create("0", "Consolas", 30);
-	label->setPosition(ccp(size.width / 2, size.height / 2));
-	this->addChild(label);
+	//label = CCLabelTTF::create("0", "Consolas", 30);
+	//label->setPosition(ccp(size.width / 2, size.height / 2));
+	//this->addChild(label);
 
-	/*schedule(schedule_selector(MySence::scheCallback),3.0f ,100, 1);
-	n = 0;*/
+	///*schedule(schedule_selector(MySence::scheCallback),3.0f ,100, 1);
+	//n = 0;*/
 
-	scheduleOnce(schedule_selector(MySence::scheCallback), 3.0f);
-//	scheduleUpdate();
+	//scheduleOnce(schedule_selector(MySence::scheCallback), 3.0f);
+////	scheduleUpdate();
 
 	
 
