@@ -13,8 +13,41 @@ MySence::~MySence()
 
 bool MySence::init()
 {
-	CCSize size = CCDirector::sharedDirector()->getWinSize();
+	size = CCDirector::sharedDirector()->getWinSize();
 
+	CCInteger* intValue = CCInteger::create(13);
+	CCLOG("%d", intValue->getValue());
+
+	CCString *str1 = CCString::create("123456789*******");
+	ccs("123456789*******");
+
+	CCString *str2 = CCString::createWithFormat("intvalue = %d", intValue);
+
+	arr = CCArray::create();
+	arr->retain();//±£Áô  important
+	arr->addObject(CCSprite::create("grossini_dance_01.png"));
+	arr->addObject(CCSprite::create("grossini_dance_02.png"));
+	arr->addObject(CCSprite::create("grossini_dance_03.png"));
+	arr->addObject(CCSprite::create("grossini_dance_04.png"));
+	arr->addObject(CCSprite::create("grossini_dance_05.png"));
+	arr->addObject(CCSprite::create("grossini_dance_06.png"));
+	arr->addObject(CCSprite::create("grossini_dance_07.png"));
+	arr->addObject(CCSprite::create("grossini_dance_08.png"));
+	arr->addObject(CCSprite::create("grossini_dance_09.png"));
+	arr->addObject(CCSprite::create("grossini_dance_10.png"));
+	arr->addObject(CCSprite::create("grossini_dance_11.png"));
+	arr->addObject(CCSprite::create("grossini_dance_12.png"));
+	arr->addObject(CCSprite::create("grossini_dance_13.png"));
+	arr->addObject(CCSprite::create("grossini_dance_14.png"));
+
+	CCLOG("arr count: %d", arr->count());
+	CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
+	item->setPosition(ccp(size.width/2, size.height*0.8));
+	CCMenu *menu = CCMenu::create(item, NULL);
+	menu->setPosition(CCPointZero);
+	addChild(menu);
+
+	
 
 
 	//////////////////////////////////////////////////////////////////////////
@@ -250,7 +283,9 @@ CCScene * MySence::scene()
 
 void MySence::menuCallback(CCObject *pSender)
 {
-
+	CCSprite *sp = (CCSprite *)arr->objectAtIndex(9);
+	sp->setPosition(ccp(size.width / 2, size.height / 2));
+	addChild(sp);
 }
 
 void MySence::scheCallback(float dt)

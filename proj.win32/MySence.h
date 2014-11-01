@@ -22,6 +22,9 @@ public:
 	int n;
 	char str[50];
 
+	CCSize size;
+	CCArray *arr;
+
 	CREATE_FUNC(MySence);
 
 };
