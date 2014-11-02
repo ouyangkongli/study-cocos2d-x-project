@@ -13,7 +13,9 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 6.CCNode类与获取当前的语言(国际化) CCApplication::sharedApplication()->getCurrentLanguage()  
 7.Schedule 定时器的使用方法    
 8.点9图  include "cocos-ext.h"  using namespace cocos2d::extension  类CCScale9Sprite  PreferredSize() CapInsets()   
-9.常用数据类型CCInteger CCString CCArray  
+9.常用数据类型1 CCInteger CCString CCArray   
+10.常用数据类型2 CCDictionary create() CCLog  
+
 
   
   

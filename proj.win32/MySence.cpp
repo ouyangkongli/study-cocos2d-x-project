@@ -15,37 +15,72 @@ bool MySence::init()
 {
 	size = CCDirector::sharedDirector()->getWinSize();
 
-	CCInteger* intValue = CCInteger::create(13);
-	CCLOG("%d", intValue->getValue());
+	//////////////////////////////////////////////////////////////////////////
+	//create
+	//////////////////////////////////////////////////////////////////////////
+	CCSprite *sp = CCSprite::create();
+	sp->initWithFile("cocos2d.png");
+	sp->setPosition(ccp(size.width/2,size.height/2));
+	addChild(sp);
 
-	CCString *str1 = CCString::create("123456789*******");
-	ccs("123456789*******");
+	//////////////////////////////////////////////////////////////////////////
+	//CCLog
+	//////////////////////////////////////////////////////////////////////////
+	CCLog("123");
+	CCLOG("123");
+	
+	
+	//////////////////////////////////////////////////////////////////////////
+	//CCDictionary
+	//////////////////////////////////////////////////////////////////////////
+	CCDictionary *dict = CCDictionary::create();
 
-	CCString *str2 = CCString::createWithFormat("intvalue = %d", intValue);
+	CCString *str1 = CCString::create("111");
+	CCString *str2 = CCString::create("222");
+	dict->setObject(str1, "key1");
+	dict->setObject(str2, "key2");
+	CCString *tmpStr = (CCString*)dict->objectForKey("key1");
+	CCLog("%s", tmpStr->getCString());
+	CCString *str3 = CCString::create("333");
+	dict->setObject(str3, "key1");
+	CCLog("%s", ((CCString*)dict->objectForKey("key1"))->getCString());
 
-	arr = CCArray::create();
-	arr->retain();//±£Áô  important
-	arr->addObject(CCSprite::create("grossini_dance_01.png"));
-	arr->addObject(CCSprite::create("grossini_dance_02.png"));
-	arr->addObject(CCSprite::create("grossini_dance_03.png"));
-	arr->addObject(CCSprite::create("grossini_dance_04.png"));
-	arr->addObject(CCSprite::create("grossini_dance_05.png"));
-	arr->addObject(CCSprite::create("grossini_dance_06.png"));
-	arr->addObject(CCSprite::create("grossini_dance_07.png"));
-	arr->addObject(CCSprite::create("grossini_dance_08.png"));
-	arr->addObject(CCSprite::create("grossini_dance_09.png"));
-	arr->addObject(CCSprite::create("grossini_dance_10.png"));
-	arr->addObject(CCSprite::create("grossini_dance_11.png"));
-	arr->addObject(CCSprite::create("grossini_dance_12.png"));
-	arr->addObject(CCSprite::create("grossini_dance_13.png"));
-	arr->addObject(CCSprite::create("grossini_dance_14.png"));
 
-	CCLOG("arr count: %d", arr->count());
-	CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
-	item->setPosition(ccp(size.width/2, size.height*0.8));
-	CCMenu *menu = CCMenu::create(item, NULL);
-	menu->setPosition(CCPointZero);
-	addChild(menu);
+
+	//////////////////////////////////////////////////////////////////////////
+	//CCInteger CCString CCArray
+	//////////////////////////////////////////////////////////////////////////
+	//CCInteger* intValue = CCInteger::create(13);
+	//CCLOG("%d", intValue->getValue());
+
+	//CCString *str1 = CCString::create("123456789*******");
+	//ccs("123456789*******");
+
+	//CCString *str2 = CCString::createWithFormat("intvalue = %d", intValue);
+
+	//arr = CCArray::create();
+	//arr->retain();//±£Áô  important
+	//arr->addObject(CCSprite::create("grossini_dance_01.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_02.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_03.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_04.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_05.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_06.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_07.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_08.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_09.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_10.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_11.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_12.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_13.png"));
+	//arr->addObject(CCSprite::create("grossini_dance_14.png"));
+
+	//CCLOG("arr count: %d", arr->count());
+	//CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
+	//item->setPosition(ccp(size.width/2, size.height*0.8));
+	//CCMenu *menu = CCMenu::create(item, NULL);
+	//menu->setPosition(CCPointZero);
+	//addChild(menu);
 
 	
 
