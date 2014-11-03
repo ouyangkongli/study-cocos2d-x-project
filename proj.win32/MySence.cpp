@@ -16,34 +16,55 @@ bool MySence::init()
 	size = CCDirector::sharedDirector()->getWinSize();
 
 	//////////////////////////////////////////////////////////////////////////
-	//create
+	//CCAction::runAction() {CCFlipX, CCFlipY, CCHide, CCShow, CCPlace, CCRemoveSelf, CCToggleVisibility...}
 	//////////////////////////////////////////////////////////////////////////
 	CCSprite *sp = CCSprite::create();
 	sp->initWithFile("cocos2d.png");
-	sp->setPosition(ccp(size.width/2,size.height/2));
+	sp->setPosition(ccp(size.width*0.4, size.height/2));
 	addChild(sp);
+
+	CCSprite *sp2 = CCSprite::create("cocos2d.png");
+	sp2->setPosition(ccp(size.width * 0.6, size.height/2));
+	addChild(sp2);
+	sp2->setVisible(false);
+	//CCActionInstant *flipX = CCFlipX::create(true);
+	//sp->runAction(flipX);
+	//CCActionInstant *flipY = CCFlipY::create(true);
+	//sp->runAction(flipY);
+
+	sp->runAction(CCToggleVisibility::create());
+	sp2->runAction(CCToggleVisibility::create());
+
+	
+	//////////////////////////////////////////////////////////////////////////
+	//create
+	//////////////////////////////////////////////////////////////////////////
+	//CCSprite *sp = CCSprite::create();
+	//sp->initWithFile("cocos2d.png");
+	//sp->setPosition(ccp(size.width/2,size.height/2));
+	//addChild(sp);
 
 	//////////////////////////////////////////////////////////////////////////
 	//CCLog
 	//////////////////////////////////////////////////////////////////////////
-	CCLog("123");
-	CCLOG("123");
+	/*CCLog("123");
+	CCLOG("123");*/
 	
 	
 	//////////////////////////////////////////////////////////////////////////
 	//CCDictionary
 	//////////////////////////////////////////////////////////////////////////
-	CCDictionary *dict = CCDictionary::create();
+	//CCDictionary *dict = CCDictionary::create();
 
-	CCString *str1 = CCString::create("111");
-	CCString *str2 = CCString::create("222");
-	dict->setObject(str1, "key1");
-	dict->setObject(str2, "key2");
-	CCString *tmpStr = (CCString*)dict->objectForKey("key1");
-	CCLog("%s", tmpStr->getCString());
-	CCString *str3 = CCString::create("333");
-	dict->setObject(str3, "key1");
-	CCLog("%s", ((CCString*)dict->objectForKey("key1"))->getCString());
+	//CCString *str1 = CCString::create("111");
+	//CCString *str2 = CCString::create("222");
+	//dict->setObject(str1, "key1");
+	//dict->setObject(str2, "key2");
+	//CCString *tmpStr = (CCString*)dict->objectForKey("key1");
+	//CCLog("%s", tmpStr->getCString());
+	//CCString *str3 = CCString::create("333");
+	//dict->setObject(str3, "key1");
+	//CCLog("%s", ((CCString*)dict->objectForKey("key1"))->getCString());
 
 
 
