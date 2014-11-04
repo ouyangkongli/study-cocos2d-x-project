@@ -16,24 +16,57 @@ bool MySence::init()
 	size = CCDirector::sharedDirector()->getWinSize();
 
 	//////////////////////////////////////////////////////////////////////////
-	//CCAction::runAction() {CCFlipX, CCFlipY, CCHide, CCShow, CCPlace, CCRemoveSelf, CCToggleVisibility...}
+	//持续CCAction {move, jump ,scale, rotate skew, blink, Fade ,Tint}
+	//to表示终点，by表示偏移量
 	//////////////////////////////////////////////////////////////////////////
 	CCSprite *sp = CCSprite::create();
 	sp->initWithFile("cocos2d.png");
-	sp->setPosition(ccp(size.width*0.4, size.height/2));
+	sp->setPosition(ccp(size.width*0.2, size.height*0.2));
 	addChild(sp);
+	CCActionInterval *moveTo = CCMoveTo::create(3.0f, ccp(size.width*0.8, size.height*0.8));
+	//sp->runAction(moveTo);
 
-	CCSprite *sp2 = CCSprite::create("cocos2d.png");
-	sp2->setPosition(ccp(size.width * 0.6, size.height/2));
-	addChild(sp2);
-	sp2->setVisible(false);
-	//CCActionInstant *flipX = CCFlipX::create(true);
-	//sp->runAction(flipX);
-	//CCActionInstant *flipY = CCFlipY::create(true);
-	//sp->runAction(flipY);
+	CCActionInterval *moveBy = CCMoveBy::create(3.0f, ccp(size.width*0.8, size.height*0.8));
+	sp->runAction(moveBy);
 
-	sp->runAction(CCToggleVisibility::create());
-	sp2->runAction(CCToggleVisibility::create());
+
+	/*CCActionInterval *jumpTo = CCJumpTo::create(4.5f, ccp(size.width*0.8, size.height*0.8), 200, 3);
+	sp->runAction(jumpTo);*/
+
+	/*CCActionInterval *scaleTo = CCScaleTo::create(5, 3);
+	sp->runAction(scaleTo);*/
+
+	/*CCActionInterval *rotateTo = CCRotateTo::create(3.0f, 90);
+	sp->runAction(rotateTo);*/
+
+	//sp->runAction(CCBlink::create(5, 10));
+
+	//sp->setOpacity(0);
+	//sp->runAction(CCFadeIn::create(3.0));//从不可见到可见
+
+	//sp->runAction(CCTintTo::create(2.5f, 255, 0, 0));
+
+
+
+	//////////////////////////////////////////////////////////////////////////
+	//瞬时CCAction::runAction() {CCFlipX, CCFlipY, CCHide, CCShow, CCPlace, CCRemoveSelf, CCToggleVisibility...}
+	//////////////////////////////////////////////////////////////////////////
+	//CCSprite *sp = CCSprite::create();
+	//sp->initWithFile("cocos2d.png");
+	//sp->setPosition(ccp(size.width*0.4, size.height/2));
+	//addChild(sp);
+
+	//CCSprite *sp2 = CCSprite::create("cocos2d.png");
+	//sp2->setPosition(ccp(size.width * 0.6, size.height/2));
+	//addChild(sp2);
+	//sp2->setVisible(false);
+	////CCActionInstant *flipX = CCFlipX::create(true);
+	////sp->runAction(flipX);
+	////CCActionInstant *flipY = CCFlipY::create(true);
+	////sp->runAction(flipY);
+
+	//sp->runAction(CCToggleVisibility::create());
+	//sp2->runAction(CCToggleVisibility::create());
 
 	
 	//////////////////////////////////////////////////////////////////////////
