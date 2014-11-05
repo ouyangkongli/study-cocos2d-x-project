@@ -17,18 +17,42 @@ bool MySence::init()
 
 	//////////////////////////////////////////////////////////////////////////
 	//持续CCAction {move, jump ,scale, rotate skew, blink, Fade ,Tint}
+	//CardinalSpline,
+	//CCSequence, CCSpawn, CCDeplayTime, CCRepeat, CCRepeatForever
 	//to表示终点，by表示偏移量
 	//////////////////////////////////////////////////////////////////////////
-	CCSprite *sp = CCSprite::create();
-	sp->initWithFile("cocos2d.png");
-	sp->setPosition(ccp(size.width*0.2, size.height*0.2));
-	addChild(sp);
-	CCActionInterval *moveTo = CCMoveTo::create(3.0f, ccp(size.width*0.8, size.height*0.8));
-	//sp->runAction(moveTo);
+	//CCSprite *sp = CCSprite::create();
+	//sp->initWithFile("cocos2d.png");
+	//sp->setPosition(ccp(size.width*0.2, size.height*0.2));
+	//addChild(sp);
+	////CCActionInterval *moveTo = CCMoveTo::create(3.0f, ccp(size.width*0.8, size.height*0.8));
+	//////sp->runAction(moveTo);
 
-	CCActionInterval *moveBy = CCMoveBy::create(3.0f, ccp(size.width*0.8, size.height*0.8));
-	sp->runAction(moveBy);
+	////CCActionInterval *moveBy = CCMoveBy::create(3.0f, ccp(size.width*0.8, size.height*0.8));
+	////sp->runAction(moveBy);
 
+	//CCPointArray *arr = CCPointArray::create(10);
+	//arr->addControlPoint(ccp(size.width*0.2, size.height*0.2));
+	//arr->addControlPoint(ccp(size.width*0.2, size.height*0.8));
+	//arr->addControlPoint(ccp(size.width*0.8, size.height*0.8));
+	//arr->addControlPoint(ccp(size.width*0.8, size.height*0.2));
+	//arr->addControlPoint(ccp(size.width*0.2, size.height*0.2));
+
+	//CCActionInterval *spline = CCCardinalSplineTo::create(3.0f, arr, 3);
+	////sp->runAction(spline);
+	//
+	//CCActionInterval *scale = CCScaleBy::create(3.0f, 2.0f);
+	//
+	///*CCActionInterval *seq = CCSequence::create(spline, scale, NULL);
+	//sp->runAction(seq);*/
+	//
+	///*CCActionInterval *spawn = CCSpawn::create(spline, scale, NULL);
+	//sp->runAction(spawn);*/
+	//CCActionInterval *reScale = scale->reverse();
+	//CCActionInterval *seq = CCSequence::create(scale, reScale, NULL);
+	//CCActionInterval *repeat = CCRepeat::create(seq,3);
+	////sp->runAction(repeat);
+	//sp->runAction(CCRepeatForever::create(seq));
 
 	/*CCActionInterval *jumpTo = CCJumpTo::create(4.5f, ccp(size.width*0.8, size.height*0.8), 200, 3);
 	sp->runAction(jumpTo);*/
