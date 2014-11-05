@@ -16,9 +16,41 @@ bool MySence::init()
 	size = CCDirector::sharedDirector()->getWinSize();
 
 	//////////////////////////////////////////////////////////////////////////
+	//CCSpeed
+	//////////////////////////////////////////////////////////////////////////
+	CCSprite *sp = CCSprite::create();
+	sp->initWithFile("cocos2d.png");
+	sp->setPosition(ccp(size.width*0.2, size.height*0.2));
+	addChild(sp);
+
+	CCActionInterval *move = CCMoveTo::create(2.0f, ccp(size.width*0.8, size.height*0.8));
+	/*CCSpeed *speed = CCSpeed::create(move, 2);
+	sp->runAction(speed);*/
+	CCFollow *follow = CCFollow::create(sp, CCRectZero);
+	CCActionInstant *func = CCCallFuncND::create(this, callfuncND_selector(MySence::funcCallBack), (void *)5090041);
+	sp->runAction(CCSequence::create(move, func, NULL));
+	this->runAction(follow);
+
+	
+	//////////////////////////////////////////////////////////////////////////
+	//CCCallFunc CCCallFuncN CCCallFuncN CCCallFunO
+	//////////////////////////////////////////////////////////////////////////
+	//CCSprite *sp = CCSprite::create();
+	//sp->initWithFile("cocos2d.png");
+	//sp->setPosition(ccp(size.width*0.2, size.height*0.2));
+	//addChild(sp);
+
+	//CCActionInterval *move = CCMoveTo::create(2.0f, ccp(size.width*0.8, size.height*0.8));
+	////CCActionInstant *func = CCCallFunc::create(this, callfunc_selector(MySence::funcCallBack));
+	////CCActionInstant *funcN = CCCallFuncN::create(this, callfuncN_selector(MySence::funcCallBack));
+	//CCActionInstant *funcND = CCCallFuncND::create(this, callfuncND_selector(MySence::funcCallBack),(void *)999);
+	//sp->runAction(CCSequence::create(move, funcND, NULL));
+
+	
+	//////////////////////////////////////////////////////////////////////////
 	//持续CCAction {move, jump ,scale, rotate skew, blink, Fade ,Tint}
 	//CardinalSpline,
-	//CCSequence, CCSpawn, CCDeplayTime, CCRepeat, CCRepeatForever
+	//CCSequence, CCSpawn, CCDelayTime, CCRepeat, CCRepeatForever
 	//to表示终点，by表示偏移量
 	//////////////////////////////////////////////////////////////////////////
 	//CCSprite *sp = CCSprite::create();
@@ -27,7 +59,7 @@ bool MySence::init()
 	//addChild(sp);
 	////CCActionInterval *moveTo = CCMoveTo::create(3.0f, ccp(size.width*0.8, size.height*0.8));
 	//////sp->runAction(moveTo);
-
+	
 	////CCActionInterval *moveBy = CCMoveBy::create(3.0f, ccp(size.width*0.8, size.height*0.8));
 	////sp->runAction(moveBy);
 
@@ -162,7 +194,6 @@ bool MySence::init()
 
 	
 
-
 	//////////////////////////////////////////////////////////////////////////
 	//点9图
 	//////////////////////////////////////////////////////////////////////////
@@ -177,10 +208,6 @@ bool MySence::init()
 	//addChild(sp2);
 	//sp2->setPreferredSize(CCSize(size.width*0.8, size.height*0.3));
 	//sp2->setCapInsets(CCRect(10,10,8,8));
-
-
-
-
 
 
 	
@@ -413,4 +440,25 @@ void MySence::scheCallback(float dt)
 void MySence::update(float dt)
 {
 
+}
+
+void MySence::funcCallBack()
+{
+	CCLOG("action end");
+}
+
+void MySence::funcCallBack(CCNode *pSender)
+{
+	CCSprite *sp = (CCSprite*)pSender;
+	sp->setPosition(ccp(size.width / 2, size.height / 2));
+}
+
+void MySence::funcCallBack(CCNode *pSender, void* data)
+{
+	CCSprite *sp = (CCSprite*)pSender;
+	/*sp->setPosition(ccp(size.width / 2, size.height / 2));*/
+	CCLOG("%f, %f", sp->getPositionX(),sp->getPositionY());
+
+	CCPoint pos = this->convertToWorldSpace(sp->getPosition());
+	CCLOG("%f, %f", pos.x, pos.y);
 }

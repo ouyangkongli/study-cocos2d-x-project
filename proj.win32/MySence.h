@@ -17,7 +17,9 @@ public:
 	void menuCallback(CCObject* pSender);
 	void scheCallback(float dt);
 	void update(float dt);
-
+	void funcCallBack();
+	void funcCallBack(CCNode *pSender);
+	void funcCallBack(CCNode *pSender, void* data);
 	CCLabelTTF *label;
 	int n;
 	char str[50];
