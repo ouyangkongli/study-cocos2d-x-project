@@ -19,5 +19,6 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 12.CCActionInterval::runAction() {move, jump ,scale, rotate skew, blink, Fade ,Tint} to表示终点，by表示偏移量
 13.CCActionInterval::runAction() { CCSequence, CCSpawn, CCDeplayTime, CCRepeat, CCRepeatForever}   
 14.回调动作(CCCallFunc CCCallFuncN CCCallFuncN CCCallFunO)、CCSpeed、CCFollow  
+15.CCAnimate 和 CCAnimation
 
   

@@ -16,20 +16,63 @@ bool MySence::init()
 	size = CCDirector::sharedDirector()->getWinSize();
 
 	//////////////////////////////////////////////////////////////////////////
+	//CCAnimate CCAnimation
+	//////////////////////////////////////////////////////////////////////////
+	/*CCSprite *sp = CCSprite::create("grossini_dance_01.png");
+	sp->setPosition(ccp(size.width/2, size.height/2));
+	addChild(sp);*/
+	//CCAnimation *animation = CCAnimation::create();
+	//char str[50] = { 0 };
+	//for (int i = 1; i <= 14; i++)
+	//{
+	//	sprintf(str, "grossini_dance_%02d.png", i);
+	//	animation->addSpriteFrameWithFileName(str);
+	//}
+	//animation->setDelayPerUnit(3.0f / 14);
+	//animation->setRestoreOriginalFrame(true);
+	//sp->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+
+	//CCTexture2D *texture = CCTextureCache::sharedTextureCache()->addImage("dragon_animation.png");
+	//
+	//CCSpriteFrame *frame0 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 0, 132 * 0, 132, 132));
+	//CCSpriteFrame *frame1 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 1, 132 * 0, 132, 132));
+	//CCSpriteFrame *frame2 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 2, 132 * 0, 132, 132));
+	//CCSpriteFrame *frame3 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 3, 132 * 0, 132, 132));
+	//CCSpriteFrame *frame4 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 0, 132 * 1, 132, 132));
+	//CCSpriteFrame *frame5 = CCSpriteFrame::createWithTexture(texture, CCRectMake(132 * 1, 132 * 1, 132, 132));
+
+	//CCArray *arr = CCArray::create();
+	//arr->addObject(frame0);
+	//arr->addObject(frame1);
+	//arr->addObject(frame2);
+	//arr->addObject(frame3);
+	//arr->addObject(frame4);
+	//arr->addObject(frame5);
+
+	//CCSprite *sp = CCSprite::createWithSpriteFrame(frame0);
+	//sp->setPosition(ccp(size.width / 2, size.height / 2));
+	//addChild(sp);
+
+	//CCAnimation *animation = CCAnimation::createWithSpriteFrames(arr, 0.2f);
+	//sp->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+
+
+
+	//////////////////////////////////////////////////////////////////////////
 	//CCSpeed
 	//////////////////////////////////////////////////////////////////////////
-	CCSprite *sp = CCSprite::create();
-	sp->initWithFile("cocos2d.png");
-	sp->setPosition(ccp(size.width*0.2, size.height*0.2));
-	addChild(sp);
+	//CCSprite *sp = CCSprite::create();
+	//sp->initWithFile("cocos2d.png");
+	//sp->setPosition(ccp(size.width*0.2, size.height*0.2));
+	//addChild(sp);
 
-	CCActionInterval *move = CCMoveTo::create(2.0f, ccp(size.width*0.8, size.height*0.8));
-	/*CCSpeed *speed = CCSpeed::create(move, 2);
-	sp->runAction(speed);*/
-	CCFollow *follow = CCFollow::create(sp, CCRectZero);
-	CCActionInstant *func = CCCallFuncND::create(this, callfuncND_selector(MySence::funcCallBack), (void *)5090041);
-	sp->runAction(CCSequence::create(move, func, NULL));
-	this->runAction(follow);
+	//CCActionInterval *move = CCMoveTo::create(2.0f, ccp(size.width*0.8, size.height*0.8));
+	///*CCSpeed *speed = CCSpeed::create(move, 2);
+	//sp->runAction(speed);*/
+	//CCFollow *follow = CCFollow::create(sp, CCRectZero);
+	//CCActionInstant *func = CCCallFuncND::create(this, callfuncND_selector(MySence::funcCallBack), (void *)5090041);
+	//sp->runAction(CCSequence::create(move, func, NULL));
+	//this->runAction(follow);
 
 	
 	//////////////////////////////////////////////////////////////////////////
