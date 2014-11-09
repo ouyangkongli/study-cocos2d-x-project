@@ -15,12 +15,35 @@ bool MySence::init()
 {
 	size = CCDirector::sharedDirector()->getWinSize();
 
+
+	//////////////////////////////////////////////////////////////////////////
+	//
+	//////////////////////////////////////////////////////////////////////////
+	CCSpriteFrameCache *cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+	cache->addSpriteFramesWithFile("animate.plist");
+
+	CCSprite *sp = CCSprite::createWithSpriteFrameName("grossini_dance_01.png");
+	sp->setPosition(ccp(size.width / 2, size.height / 2));
+	addChild(sp);
+
+	CCArray *arr = CCArray::createWithCapacity(14);
+	char str[50] = {0};
+	for (int i = 1; i < 15; i++)
+	{
+		sprintf(str, "grossini_dance_%02d.png", i);
+		CCSpriteFrame *frame = cache->spriteFrameByName(str);
+		arr->addObject(frame);
+	}
+	CCAnimation *animation = CCAnimation::createWithSpriteFrames(arr, 0.2f);
+	sp->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+
+	
 	//////////////////////////////////////////////////////////////////////////
 	//CCAnimate CCAnimation
 	//////////////////////////////////////////////////////////////////////////
-	/*CCSprite *sp = CCSprite::create("grossini_dance_01.png");
-	sp->setPosition(ccp(size.width/2, size.height/2));
-	addChild(sp);*/
+	//CCSprite *sp = CCSprite::create("grossini_dance_01.png");
+	//sp->setPosition(ccp(size.width/2, size.height/2));
+	//addChild(sp);
 	//CCAnimation *animation = CCAnimation::create();
 	//char str[50] = { 0 };
 	//for (int i = 1; i <= 14; i++)

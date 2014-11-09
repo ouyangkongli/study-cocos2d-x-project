@@ -16,9 +16,10 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 9.常用数据类型1 CCInteger CCString CCArray   
 10.常用数据类型2 CCDictionary create() CCLog   
 11.CCActionInstant::runAction(){CCFlipX, CCFlipY, CCHide, CCShow, CCPlace, CCRemoveSelf, CCToggleVisibility...}  
-12.CCActionInterval::runAction() {move, jump ,scale, rotate skew, blink, Fade ,Tint} to表示终点，by表示偏移量
+12.CCActionInterval::runAction() {move, jump ,scale, rotate skew, blink, Fade ,Tint} to表示终点，by表示偏移量  
 13.CCActionInterval::runAction() { CCSequence, CCSpawn, CCDeplayTime, CCRepeat, CCRepeatForever}   
 14.回调动作(CCCallFunc CCCallFuncN CCCallFuncN CCCallFunO)、CCSpeed、CCFollow  
-15.CCAnimate 和 CCAnimation
+15.CCAnimate CCAnimation 1   方式1：以此加入spriteframe   方法2：多个图片组织在一起，通过坐标定位各个图片并加入到animation。   
+16. CCAnimate CCAnimation 2  TexturePacker把多个图片组织在一张图片上，生成SpriteFrames，然后从SpriteFrames中以此读取spriteframe。   
 
   
