@@ -15,11 +15,32 @@ bool MySence::init()
 {
 	size = CCDirector::sharedDirector()->getWinSize();
 
+	/*
+	*CCEase
+	*运动中的加速度变化
+	*/
+	CCSprite *sp = CCSprite::create("cocos2d.png");
+	sp->setPosition(ccp(size.width * 0.2, size.height * 0.2));
+	addChild(sp);
+
+	//sp->runAction(CCEaseElasticInOut::create(CCMoveTo::create(3.0f, ccp(size.width * 0.8, size.height * 0.8))));
+	
+	/*sp->setScale(0);
+	CCActionInterval *scaleTo = CCScaleTo::create(3, 1);
+	CCEaseBackOut *easeBackout = CCEaseBackOut::create(scaleTo);
+	sp->runAction(easeBackout);*/
+
+	sp->setPosition(ccp(size.width * 0.5, size.height + size.height * 0.2));
+	CCActionInterval *moveTo = CCMoveTo::create(2, ccp(size.width * 0.5, size.height * 0.5));
+	CCEaseBounceOut *easeBackout = CCEaseBounceOut::create(moveTo);
+	sp->runAction(easeBackout);
+
+
 
 	//////////////////////////////////////////////////////////////////////////
-	//
+	//CCAnimate CCAnimation
 	//////////////////////////////////////////////////////////////////////////
-	CCSpriteFrameCache *cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+	/*CCSpriteFrameCache *cache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	cache->addSpriteFramesWithFile("animate.plist");
 
 	CCSprite *sp = CCSprite::createWithSpriteFrameName("grossini_dance_01.png");
@@ -35,7 +56,7 @@ bool MySence::init()
 		arr->addObject(frame);
 	}
 	CCAnimation *animation = CCAnimation::createWithSpriteFrames(arr, 0.2f);
-	sp->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+	sp->runAction(CCRepeatForever::create(CCAnimate::create(animation)));*/
 
 	
 	//////////////////////////////////////////////////////////////////////////
