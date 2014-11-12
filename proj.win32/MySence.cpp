@@ -16,7 +16,7 @@ bool MySence::init()
 	size = CCDirector::sharedDirector()->getWinSize();
 
 	/*
-	*CCEase
+	*CCActionEase
 	*运动中的加速度变化
 	*/
 	CCSprite *sp = CCSprite::create("cocos2d.png");
@@ -34,7 +34,7 @@ bool MySence::init()
 	CCActionInterval *moveTo = CCMoveTo::create(2, ccp(size.width * 0.5, size.height * 0.5));
 	CCEaseBounceOut *easeBackout = CCEaseBounceOut::create(moveTo);
 	sp->runAction(easeBackout);
-
+	
 
 
 	//////////////////////////////////////////////////////////////////////////
