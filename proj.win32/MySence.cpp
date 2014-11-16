@@ -15,26 +15,34 @@ bool MySence::init()
 {
 	size = CCDirector::sharedDirector()->getWinSize();
 
+
 	/*
-	CCProgressTimer
+	CCProgressAction
+	CCProgressTo CCProgressTimer CCProgressFromTo
 	*/
-	CCProgressTo * to = CCProgressTo::create(5.0f, 100);
+	/*CCProgressTo * to = CCProgressTo::create(5.0f, 100);
 	CCProgressTimer * timer = CCProgressTimer::create(CCSprite::create("cocos2d.png"));
 	timer->setPosition(ccp(size.width * 0.5, size.height * 0.5));
-	
-	addChild(timer);
+
+	addChild(timer);*/
 	//timer->setType(kCCProgressTimerTypeRadial);
 	
 	/*timer->setType(kCCProgressTimerTypeBar);
 	timer->setBarChangeRate(ccp(1,0));
-	timer->setMidpoint(ccp(0,0));*/
+	timer->setMidpoint(ccp(0,0));
 
-	timer->runAction(to);
+	timer->runAction(to);*/
 
-	CCSprite *sp = CCSprite::create("cocos2d.png");
-	sp->setPosition(ccp(size.width * 0.5, size.height * 0.5));
-	addChild(sp);
-	sp->setOpacity(88);
+	//CCSprite *sp = CCSprite::create("cocos2d.png");
+	//sp->setPosition(ccp(size.width * 0.5, size.height * 0.5));
+	//addChild(sp);
+	////sp->setOpacity(88);
+
+	///*
+	//CCGrideAction
+	//*/
+	//CCGridAction *gridAction = CCShaky3D::create(5.0f, CCSize(5, 5), 3, false);
+	//sp->runAction(gridAction);
 
 
 
@@ -296,11 +304,11 @@ bool MySence::init()
 	//arr->addObject(CCSprite::create("grossini_dance_14.png"));
 
 	//CCLOG("arr count: %d", arr->count());
-	//CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
-	//item->setPosition(ccp(size.width/2, size.height*0.8));
-	//CCMenu *menu = CCMenu::create(item, NULL);
-	//menu->setPosition(CCPointZero);
-	//addChild(menu);
+	CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
+	item->setPosition(ccp(size.width/2, size.height*0.8));
+	CCMenu *menu = CCMenu::create(item, NULL);
+	menu->setPosition(CCPointZero);
+	addChild(menu);
 
 	
 
@@ -533,9 +541,13 @@ CCScene * MySence::scene()
 
 void MySence::menuCallback(CCObject *pSender)
 {
-	CCSprite *sp = (CCSprite *)arr->objectAtIndex(9);
+	/*CCSprite *sp = (CCSprite *)arr->objectAtIndex(9);
 	sp->setPosition(ccp(size.width / 2, size.height / 2));
-	addChild(sp);
+	addChild(sp);*/
+
+	CCScene *s = HelloWorld::scene();
+	CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(5.2f, s));
+
 }
 
 void MySence::scheCallback(float dt)

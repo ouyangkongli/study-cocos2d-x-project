@@ -23,6 +23,6 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 16.CCAnimate CCAnimation 2  TexturePacker把多个图片组织在一张图片上，生成SpriteFrames，然后从SpriteFrames中以此读取spriteframe。   
 17.CCActionEase  运动中的加速度变化    
 18. CCProgressAction 进度条  
+19. CCGrideAction 用于产生特效  CCTransionAction 用于场景过度  
 
-
-  
+ 
