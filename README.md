@@ -21,6 +21,8 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 14.回调动作(CCCallFunc CCCallFuncN CCCallFuncN CCCallFunO)、CCSpeed、CCFollow  
 15.CCAnimate CCAnimation 1   方式1：以此加入spriteframe   方法2：多个图片组织在一起，通过坐标定位各个图片并加入到animation。   
 16.CCAnimate CCAnimation 2  TexturePacker把多个图片组织在一张图片上，生成SpriteFrames，然后从SpriteFrames中以此读取spriteframe。   
-17.CCActionEase  运动中的加速度变化  
+17.CCActionEase  运动中的加速度变化    
+18. CCProgressAction 进度条  
+
 
   
