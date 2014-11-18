@@ -17,6 +17,16 @@ public:
     
     // implement the "static node()" method manually
     CREATE_FUNC(HelloWorld);
+
+	HelloWorld();
+	~HelloWorld();
+	virtual void onEnter();
+	virtual void onEnterTransitionDidFinish();
+	virtual void onExit();
+	virtual void onExitTransitionDidStart();
+
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__
+

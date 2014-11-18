@@ -3,11 +3,13 @@
 
 MySence::MySence()
 {
+	CCLOG("MySence constructor");
 }
 
 
 MySence::~MySence()
 {
+	CCLOG("MySence destructor");
 }
 
 
@@ -523,7 +525,7 @@ bool MySence::init()
 	3.3个参数	加一个tag，方便其它方法调用
 	*/
 	/************************************************************************/
-	
+	CCLOG("MySence init");
 
 	return true;
 }
@@ -546,7 +548,7 @@ void MySence::menuCallback(CCObject *pSender)
 	addChild(sp);*/
 
 	CCScene *s = HelloWorld::scene();
-	CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(5.2f, s));
+	CCDirector::sharedDirector()->replaceScene(CCTransitionPageTurn::create(5.2f, s, true));
 
 }
 
@@ -583,4 +585,28 @@ void MySence::funcCallBack(CCNode *pSender, void* data)
 
 	CCPoint pos = this->convertToWorldSpace(sp->getPosition());
 	CCLOG("%f, %f", pos.x, pos.y);
+}
+
+void MySence::onEnter()
+{
+	CCLOG("MySence OnEnter");
+	CCLayer::onEnter();
+}
+
+void MySence::onEnterTransitionDidFinish()
+{
+	CCLOG("MySence onEnterTransitionDidFinish");
+	CCLayer::onEnterTransitionDidFinish();
+}
+
+void MySence::onExit()
+{
+	CCLOG("MySence onExit");
+	CCLayer::onExit();
+}
+
+void MySence::onExitTransitionDidStart()
+{
+	CCLOG("MySence onExitTransitionDidStart");
+	CCLayer::onExitTransitionDidStart();
 }

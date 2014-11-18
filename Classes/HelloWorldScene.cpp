@@ -73,6 +73,8 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
     
+
+	CCLOG("HelloWorld init");
     return true;
 }
 
@@ -87,4 +89,38 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
     exit(0);
 #endif
 #endif
+}
+
+HelloWorld::HelloWorld()
+{
+	CCLOG("HelloWorld constructor");
+}
+
+HelloWorld::~HelloWorld()
+{
+	CCLOG("HelloWorld destructor");
+}
+
+void HelloWorld::onEnter()
+{
+	CCLOG("HelloWorld OnEnter");
+	CCLayer::onEnter();
+}
+
+void HelloWorld::onEnterTransitionDidFinish()
+{
+	CCLOG("HelloWorld onEnterTransitionDidFinish");
+	CCLayer::onEnterTransitionDidFinish();
+}
+
+void HelloWorld::onExit()
+{
+	CCLOG("HelloWorld onExit");
+	CCLayer::onExit();
+}
+
+void HelloWorld::onExitTransitionDidStart()
+{
+	CCLOG("HelloWorld onExitTransitionDidStart");
+	CCLayer::onExitTransitionDidStart();
 }

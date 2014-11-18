@@ -29,5 +29,12 @@ public:
 
 	CREATE_FUNC(MySence);
 
+
+	virtual void onEnter();
+	virtual void onEnterTransitionDidFinish();
+	virtual void onExit();
+	virtual void onExitTransitionDidStart();
+
+
 };
 
