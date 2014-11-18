@@ -19,6 +19,41 @@ bool MySence::init()
 
 
 	/*
+
+	*/
+	labelLoading = CCLabelTTF::create("loading...", "Arial", 20);
+	labelPercent = CCLabelTTF::create("0%", "Arial", 20);
+
+	labelLoading->setPosition(ccp(size.width * 0.5, size.height * 0.65));
+	labelPercent->setPosition(ccp(size.width * 0.5, size.height * 0.35));
+
+	this->addChild(labelLoading);
+	this->addChild(labelPercent);
+
+	numberOfSprites = 100;
+	numberOfLoadedSprites = 0;
+
+	CCSprite *loadBg = CCSprite::create("sliderTrack.png");
+	loadBg->setPosition(ccp(size.width * 0.5, size.height * 0.15));
+	this->addChild(loadBg);
+
+	//创建进程条
+	loadProgress = CCProgressTimer::create(CCSprite::create("sliderProgress.png"));
+	loadProgress->setBarChangeRate(ccp(1, 0));//设置进度条的变化速率
+	loadProgress->setType(kCCProgressTimerTypeBar);//类型
+	loadProgress->setMidpoint(ccp(0, 0));   //运动方向
+	loadProgress->setPosition(ccp(size.width * 0.5, size.height * 0.15));
+	loadProgress->setPercentage(0.0f);//初始值
+	this->addChild(loadProgress, 1);
+
+	for (int i = 0; i < 50; i++ )
+	{
+		CCTextureCache::sharedTextureCache()->addImageAsync("HelloWorld.png", this, callfuncO_selector(MySence::loadingCallBack));
+		CCTextureCache::sharedTextureCache()->addImageAsync("icon.png", this, callfuncO_selector(MySence::loadingCallBack));
+	}
+
+
+	/*
 	CCProgressAction
 	CCProgressTo CCProgressTimer CCProgressFromTo
 	*/
@@ -306,11 +341,11 @@ bool MySence::init()
 	//arr->addObject(CCSprite::create("grossini_dance_14.png"));
 
 	//CCLOG("arr count: %d", arr->count());
-	CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
+	/*CCMenuItemFont *item = CCMenuItemFont::create("click", this, menu_selector(MySence::menuCallback));
 	item->setPosition(ccp(size.width/2, size.height*0.8));
 	CCMenu *menu = CCMenu::create(item, NULL);
 	menu->setPosition(CCPointZero);
-	addChild(menu);
+	addChild(menu);*/
 
 	
 
@@ -609,4 +644,25 @@ void MySence::onExitTransitionDidStart()
 {
 	CCLOG("MySence onExitTransitionDidStart");
 	CCLayer::onExitTransitionDidStart();
+}
+
+void MySence::loadingCallBack(CCObject *pSender)
+{
+	numberOfLoadedSprites++;
+	char tmp[10];
+	float value = ((float)numberOfLoadedSprites / numberOfSprites) * 100;
+	sprintf(tmp,"%d%%",(int)value);
+	
+	labelPercent->setString(tmp);
+	loadProgress->setPercentage(value);
+
+	if (numberOfLoadedSprites == numberOfSprites)
+	{
+		turnToScene();
+	}
+}
+
+void MySence::turnToScene()
+{
+	CCDirector::sharedDirector()->replaceScene(CCTransitionPageTurn::create(1.2f, HelloWorld::scene(), true));
 }

@@ -24,7 +24,7 @@ public:
 	virtual void onEnterTransitionDidFinish();
 	virtual void onExit();
 	virtual void onExitTransitionDidStart();
-
+	
 
 };
 

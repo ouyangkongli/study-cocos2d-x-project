@@ -25,4 +25,5 @@ cocos2d-x API: http://www.cocos2d-x.org/reference/native-cpp/V2.2.3/index.html
 18. CCProgressAction 进度条  
 19. CCGrideAction 用于产生特效  CCTransionAction 用于场景过度  
 20.Scene生命周期  
+21.Scene转换 制作loading场景  
  

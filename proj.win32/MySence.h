@@ -34,7 +34,16 @@ public:
 	virtual void onEnterTransitionDidFinish();
 	virtual void onExit();
 	virtual void onExitTransitionDidStart();
+	
+	
+	void turnToScene();
+	void loadingCallBack(CCObject *pSender);
+	CCLabelTTF *labelLoading;
+	CCLabelTTF *labelPercent;
+	int numberOfSprites;        //sprite总数
+	int numberOfLoadedSprites;   //已加载的sprite数目
 
+	CCProgressTimer *loadProgress;
 
 };
 
